@@ -9,22 +9,8 @@
     <title>Nory | Digital PlayGround</title>
     
     <!-- language -->
-    <script>
-    var type=navigator.appName
-    if (type=="Netscape")
-    var lang = navigator.language
-    else
-    var lang = navigator.userLanguage
-
-    // 국가코드에서 앞 2글자만 자름
-    var lang = lang.substr(0,2)
-
-    if (lang == "ko")
-    window.location.replace('index.html')
-
-    else
-    window.location.replace('en.html')
-    </script>
+    <link rel="alternate" hreflang="en" href="https://nory.cc/en/index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://nory.cc/ko/index.html" />
     
     <!-- google Adsense meta tags -->
     <script data-ad-client="ca-pub-2637974918704527" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
