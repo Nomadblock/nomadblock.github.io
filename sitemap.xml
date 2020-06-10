@@ -9,34 +9,34 @@
 
 <!-- language -->
 <url>
-    <loc>https://nory.cc/index.html</loc>
-    <xhtml:link 
-               rel="alternate"
-               hreflang="ko"
-               href="https://nory.cc/ko/index.html"/>
-    <xhtml:link 
-               rel="alternate"
-               hreflang="x-default"
-               href="https://nory.cc/index.html"/>
+    <loc>https://nory.cc/</loc>
     <xhtml:link 
                rel="alternate"
                hreflang="en"
-               href="https://nory.cc/index.html"/>
-  </url>
-  <url>
-    <loc>https://nory.cc/ko/index.html</loc>
+               href="https://nory.cc/"/>
     <xhtml:link 
                rel="alternate"
                hreflang="ko"
-               href="https://nory.cc/ko/index.html"/>
+               href="https://nory.cc/ko/"/>
     <xhtml:link 
                rel="alternate"
                hreflang="x-default"
-               href="https://nory.cc/index.html"/>
+               href="https://nory.cc/"/>
+</url>
+<url>
+    <loc>https://nory.cc/ko/</loc>
     <xhtml:link 
                rel="alternate"
                hreflang="en"
-               href="https://nory.cc/index.html"/>
+               href="https://nory.cc/"/>
+    <xhtml:link 
+               rel="alternate"
+               hreflang="ko"
+               href="https://nory.cc/ko/"/>
+    <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://nory.cc/"/>
   </url>
       
 <url>
