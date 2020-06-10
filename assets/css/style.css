@@ -39,17 +39,28 @@
 .section {padding: 5px 0px;}
 .section h1 em {font-size: 15px;}
 .section h2 em {font-size: 30px;}
-.square a {position: relative; overflow: hidden; float: left; width: 19%; margin: 0.5%;}
-.square a img {width: 100%; display: block;}
-.square a em {background: rgba(0,0,0,.57); color: #fff; width: 100%; text-align: center; font-size: 15px;
-    position: absolute; left: 0; bottom: -30px; opacity: 1; transition: all .3s ease;}
-.square a:hover em {bottom: 0;}
-.square a:nth-child(n):hover img {filter: sepia(120%) hue-rotate(120deg);}
-/* .square a:nth-child(1):hover img {filter: blur(2px);}
-.square a:nth-child(2):hover img {filter: brightness(50%);}
-.square a:nth-child(3):hover img {filter: contrast(10%);}
-.square a:nth-child(4):hover img {filter: grayscale(100%);}
-.square a:nth-child(5):hover img {filter: hue-rotate(120deg);} */
+.square a {position: relative; padding-top: 18%; overflow: hidden; float: left; border-radius: 5%; width: 24%; margin: 0.5%;}
+.square a img {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; max-width: 100%; height: auto; 
+    display: block; 
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition: all .3s ease-in-out;
+}
+.square a em { color: #fff; width: 100%; font-size: 15px;
+    position: absolute; left: 10%; top: 10%;}
+.square a:hover img {
+    transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+
 
 /* 푸터 */
 .footer {text-align: center; padding: 30px 50px;} 
@@ -84,10 +95,8 @@
     .header .nav ul {border-left: none;}
     .header .nav ul li {width: 100%; text-align: center; border-right: none;}
     .header .nav ul li a {display: inline;}
-    .square a {width: 49%;}
-    .square a em {left: 0; bottom: 0; opacity: 1;}
-    .square a:nth-child(5) {display: none;}
-    .square a:nth-child(n):hover img {filter: none;}
+    .square a {width: 49%; padding-top: 25%;}
+    .square a:hover img {filter: none;}
     .footer {padding: 10px 20px;} 
     .footer address {padding-top: 10px;}
 }
