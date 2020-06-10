@@ -7,43 +7,41 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-<!-- language -->
 <url>
-    <loc>https://nory.cc/</loc>
-    <xhtml:link 
+<loc>https://nory.cc/</loc>
+      <xhtml:link 
                rel="alternate"
                hreflang="en"
                href="https://nory.cc/"/>
-    <xhtml:link 
+      <xhtml:link 
                rel="alternate"
                hreflang="ko"
                href="https://nory.cc/ko/"/>
-    <xhtml:link 
+      <xhtml:link 
                rel="alternate"
                hreflang="x-default"
                href="https://nory.cc/"/>
+      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+      <priority>1.00</priority>
 </url>
 <url>
-    <loc>https://nory.cc/ko/</loc>
-    <xhtml:link 
+<loc>https://nory.cc/ko/</loc>
+      <xhtml:link 
                rel="alternate"
                hreflang="en"
                href="https://nory.cc/"/>
-    <xhtml:link 
+      <xhtml:link 
                rel="alternate"
                hreflang="ko"
                href="https://nory.cc/ko/"/>
-    <xhtml:link 
+      <xhtml:link 
                rel="alternate"
                hreflang="x-default"
                href="https://nory.cc/"/>
-  </url>
-      
-<url>
-  <loc>https://nory.cc/</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-  <priority>1.00</priority>
+      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+      <priority>0.95</priority>
 </url>
+
 <url>
   <loc>https://nory.cc/index.html</loc>
   <lastmod>2020-06-09T17:40:15+00:00</lastmod>
