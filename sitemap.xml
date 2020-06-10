@@ -9,6 +9,8 @@
 
 <url>
 <loc>https://nory.cc/</loc>
+      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+      <priority>1.00</priority>
       <xhtml:link 
                rel="alternate"
                hreflang="en"
@@ -21,11 +23,11 @@
                rel="alternate"
                hreflang="x-default"
                href="https://nory.cc/"/>
-      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-      <priority>1.00</priority>
 </url>
 <url>
 <loc>https://nory.cc/ko/</loc>
+      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+      <priority>1.00</priority>
       <xhtml:link 
                rel="alternate"
                hreflang="en"
@@ -38,8 +40,6 @@
                rel="alternate"
                hreflang="x-default"
                href="https://nory.cc/"/>
-      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-      <priority>0.95</priority>
 </url>
 
 <url>
