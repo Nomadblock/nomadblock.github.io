@@ -1,79 +1,57 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="webstoryboy">
-    <meta name="description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
-    <meta name="keywords" content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기">
+    <meta name="author" content="nory">
+    <meta name="description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second.">
+    <meta name="keywords" content="nory, Social Network, kakaotalk, Digital PlayGround">
     <title>Nory | Digital PlayGround</title>
+    
+    <!-- language -->
+    <link rel="alternate" hreflang="en" href="https://nory.cc/" />
+    <link rel="alternate" hreflang="ko" href="https://nory.cc/ko/" />
+    <link rel="alternate" hreflang="x-default" href="https://nory.cc/" />
+    
+    <!-- google Adsense meta tags -->
+    <script data-ad-client="ca-pub-2637974918704527" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <!-- css -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <!-- style -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
     
-    <!-- 파비콘 -->
-    <link rel="shortcut icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="assets/icons/favicon_72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="assets/icons/favicon_96.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/icons/favicon_144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="assets/icons/favicon_192.png" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" sizes="32x32" href="/assets/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/icons/favicon_72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="/assets/icons/favicon_96.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/icons/favicon_144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/assets/icons/favicon_192.png" />
     
-    <!-- 페이스북 메타 태그 -->
-    <meta property="og:title" content="메가박스 사이트 만들기" />
-    <meta property="og:url" content="https://github.com/webstoryboy/megabox2019" />
-    <meta property="og:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg" />
-    <meta property="og:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다." />
+    <!-- Facebook meta tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Nory" />
+    <meta property="og:url" content="http://nory.cc/index.html" />
+    <meta property="og:image" content="http://nory.cc/assets/ico/favicon.png" />
+    <meta property="og:site_name" content="Nory.cc" />
+    <meta property="og:description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
    
-    <!-- 트위터 메타 태그 -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="메가박스 사이트 만들기">
-    <meta name="twitter:url" content="https://github.com/webstoryboy/megabox2019/">
-    <meta name="twitter:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg">
-    <meta name="twitter:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
+    <!-- twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nory" />
+    <meta name="twitter:title" content="Nory" />
+    <meta name="twitter:description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+    <meta property="twitter:image" content="http://nory.cc/assets/ico/favicon.png" />
     
-    <!-- 웹 폰트 -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
-    
-    <!-- HTLM5shiv ie6~8 -->
-    <!--[if lt IE 9]> 
-      <script src="assets/js/html5shiv.min.js"></script>
-      <script type="text/javascript">
-         alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
-      </script>
-   <![endif]-->
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet" >
+
 </head>
 <body>
     
     <!-- header -->
-    <header id="header">
-        <div class="container">
-            <div class="row">
-                <div class="header clearfix">
-                    <h1>
-                        <a href="index.html">
-                            <em><img src="assets/img/logo.png" alt="MEGABOX"></em>
-                        </a>    
-                    </h1>
-                    <nav id="mNav">
-                        <h2 class="ir_so">메가박스 전체메뉴</h2>
-                        <a href="#" class="ham"><span></span></a>
-                    </nav>
-                    <nav class="nav">
-                        <ul class="clearfix">
-                            <li><a href="social.html">Social</a></li>
-                            <li><a href="personality.html">Personality</a></li>
-                            <li><a href="quiz.html">Quiz</a></li>
-                            <li><a href="tournament.html">Tournament</a></li>
-                            <li><a href="game.html">Game</a></li>
-                        </ul>
-                    </nav>    
-                </div>
-            </div>
-        </div>
-    </header>
+    <div id="includeheader"></div>
     <!-- //header -->
 
     <!-- section1 -->
@@ -196,41 +174,23 @@
     <!-- //section5 -->
 
     <!-- footer -->
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer">
-                    <p>Digital Playground on line.</p>
-                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>Anywhere and nowhere</p>
-                    <ul>
-                        <li><a href="blog/">Blog</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                        <li><a href="privacy.html">Privacy</a></li>
-                    </ul>
-                    <address>
-                        Copyright ©
-                        <a href="https://nory.cc"><strong>Nory</strong>.</a>
-                        All Rights Reserved.
-                    </address>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="includefooter"></div>
     <!-- //footer -->
     
     
     <!-- 자바스크립트 라이브러리 -->
-    <script src="assets/js/jquery.min_1.12.4.js"></script>
-    <script src="assets/js/modernizr-custom.js"></script>
-    <script src="assets/js/ie-checker.js"></script>
+    <script src="/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="/assets/js/modernizr-custom.js"></script>
+    <script src="/assets/js/ie-checker.js"></script>
 
-    <script>
-    //접기/펼치기
-        $(".ham").click(function(e){
-            e.preventDefault();
-            $(".nav").slideToggle();
+    <!-- adfit -->
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+    <!-- include -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $("#includeheader").load("/template/header.html")
+        $("#includefooter").load("/template/footer.html")
         });
     </script>
 </body>
