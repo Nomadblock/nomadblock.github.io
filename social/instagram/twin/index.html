@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta name="author" content="nory">
+    <meta name="description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second.">
+    <meta name="keywords" content="nory, Social Network, kakaotalk, Digital PlayGround">
+    <title>Nory | Digital PlayGround</title>
+    
+    <!-- language -->
+    <link rel="alternate" hreflang="en" href="https://nory.cc/" />
+    <link rel="alternate" hreflang="ko" href="https://nory.cc/ko/" />
+    <link rel="alternate" hreflang="x-default" href="https://nory.cc/" />
+    
+    <!-- google Adsense meta tags -->
+    <script data-ad-client="ca-pub-2637974918704527" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" sizes="32x32" href="/assets/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/icons/favicon_72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="/assets/icons/favicon_96.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/icons/favicon_144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/assets/icons/favicon_192.png" />
+    
+    <!-- Facebook meta tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Nory" />
+    <meta property="og:url" content="http://nory.cc/index.html" />
+    <meta property="og:image" content="http://nory.cc/assets/ico/favicon.png" />
+    <meta property="og:site_name" content="Nory.cc" />
+    <meta property="og:description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+   
+    <!-- twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nory" />
+    <meta name="twitter:title" content="Nory" />
+    <meta name="twitter:description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+    <meta property="twitter:image" content="http://nory.cc/assets/ico/favicon.png" />
+    
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet" >
+    
+</head>
+<body>
+    
+    <!-- header -->
+    <div id="includeheader"></div>
+    <!-- //header -->
+
+    <!-- subtitle -->
+    <section id="subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="subtitle">
+                    <div><h1>Face Test</h1></div>
+                    <div><em>Upload your face<br>Find your hidden twin</em></div>
+                    <div class="item_img">
+                        <img src="assets/img/twin.png" alt="twin">
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <!-- //subtitle -->
+
+    <!-- section1 -->
+    <h3 class="pb-2 d-flex justify-content-center">성별을 선택하세요</h3>
+    <section class="d-flex justify-content-center">
+        <p class="d-flex align-items-center pr-3">여자</p>
+        <div>
+            <input type="checkbox" id="gender">
+            <label for="gender">
+                <span class="knob">
+                    <i></i>
+                </span>
+            </label>
+        </div>
+        <p class="d-flex align-items-center pl-3">남자</p>
+    </section>
+    <div class="mt-3 container file-upload">
+        <div class="image-upload-wrap">
+            <input class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*">
+            <div class="drag-text">
+                <img src="assets/img/upload.svg" class="mt-5 pt-5 upload">
+                <h3 class="mb-5 pb-5 pt-4  upload-text">얼굴 사진을 올려놓거나 눌러서 업로드하세요!</h3>
+            </div>
+        </div>
+        <div class="file-upload-content">
+            <img class="file-upload-image" id="face-image" src="#" alt="your image">
+            <div id="loading" class="animated bounce">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <p class="text-center">AI가 당신의 동물상을 분석중입니다.</p>
+            </div>
+            <p class="result-message"></p>
+            <div id="label-container" class="d-flex flex-column justify-content-around"></div>
+            <div id="addThis" class="addthis_inline_share_toolbox_6lz1" data-url="https://animalface.site/" data-title="동물상 테스트" data-description="얼굴로 보는 인공지능 동물상 테스트, 나와 닮은 동물상을 찾아보세요! 대표 동물상 연예인 사진 데이터로 학습한 인공지능이 나의 얼굴로 동물상과 특징을 찾아드립니다. 회원가입도 필요없이 화면에서 바로 확인해보세요! 사진 데이터는 그 어디에도 전송되지 않습니다. 인공지능이 보는 나의 동물상 테스트 한번 해보세요! 강아지상? 고양이상? 여우상? 사슴상? 토끼상? 곰상? 공룡상? 얼굴상 테스트를 통해 나와 닮은 동물 찾기를 할 수 있습니다." style="clear: both;">
+                <div id="atstbx" class="at-resp-share-element at-style-responsive addthis-smartlayers addthis-animated at4-show" aria-labelledby="at-62b7acfd-d4a8-4bfc-810d-b3e34ce03d51" role="region">
+                    <span id="at-62b7acfd-d4a8-4bfc-810d-b3e34ce03d51" class="at4-visually-hidden">AddThis Sharing Buttons</span>
+                    <div class="at-share-btn-elements">
+                        <a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-facebook" style="background-color: rgb(59, 89, 152); border-radius: 26px;">
+                            <span class="at4-visually-hidden">Share to Facebook</span>
+                            <span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-facebook-1" style="fill: rgb(255, 255, 255); width: 32px; height: 32px;" class="at-icon at-icon-facebook">
+                                    <title id="at-svg-facebook-1">Facebook</title>
+                                    <g>
+                                        <path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z" fill-rule="evenodd">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </span>
+                        </a>
+                        <a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-lineme" style="background-color: rgb(0, 185, 0); border-radius: 26px;">
+                            <span class="at4-visually-hidden">Share to LINE</span>
+                            <span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-lineme-2" style="fill: rgb(255, 255, 255); width: 32px; height: 32px;" class="at-icon at-icon-lineme">
+                                    <title id="at-svg-lineme-2">LINE</title>
+                                    <g>
+                                        <path d="M27 14.927c0 1.97-.764 3.744-2.358 5.492-2.307 2.655-7.468 5.89-8.642 6.385-1.174.495-1-.315-.953-.593l.157-.94c.037-.282.075-.718-.035-.996-.125-.306-.612-.465-.97-.542-5.287-.7-9.2-4.395-9.2-8.807C5 10.005 9.935 6 16 6c6.066 0 11 4.005 11 8.927zm-13.235-2.38h-.772a.214.214 0 0 0-.214.215v4.793c0 .118.095.214.213.214h.772a.214.214 0 0 0 .214-.215v-4.793a.214.214 0 0 0-.215-.214zm5.31 0h-.77a.214.214 0 0 0-.215.215v2.848l-2.197-2.967a.235.235 0 0 0-.017-.023l-.014-.013-.003-.004c-.005-.003-.01-.006-.013-.01-.002 0-.003-.002-.005-.004l-.01-.008a.262.262 0 0 0-.018-.01c-.004 0-.006-.003-.008-.004a.605.605 0 0 0-.013-.005l-.007-.002a.106.106 0 0 0-.02-.005.098.098 0 0 0-.012-.003h-.01c-.003-.002-.006-.002-.01-.003-.004 0-.007 0-.01-.002h-.78a.214.214 0 0 0-.214.214v4.793c0 .118.095.214.214.214h.77a.214.214 0 0 0 .216-.215v-2.847l2.2 2.97c.014.022.033.04.053.053 0 .002.002.002.002.003l.014.008c0 .002.003.003.005.004l.01.005c.003 0 .007.002.01.004.003 0 .004 0 .007.002l.014.005s.002 0 .003.002a.206.206 0 0 0 .054.007h.772a.214.214 0 0 0 .214-.215v-4.793a.214.214 0 0 0-.214-.214zm-7.17 4.022H9.81V12.76a.214.214 0 0 0-.216-.214h-.77a.214.214 0 0 0-.216.214v4.793c0 .058.023.11.06.148l.003.003c.002 0 .003.002.005.003.038.036.09.06.147.06h3.083a.214.214 0 0 0 .214-.215v-.772a.214.214 0 0 0-.215-.214zm11.432-2.822a.214.214 0 0 0 .214-.214v-.77a.214.214 0 0 0-.213-.216h-3.082a.213.213 0 0 0-.15.06s0 .002-.002.003c0 .002-.003.003-.004.005a.214.214 0 0 0-.06.147v4.793c0 .057.023.11.06.148l.003.003.003.003c.04.036.09.06.148.06h3.083a.214.214 0 0 0 .214-.215v-.772a.214.214 0 0 0-.213-.214H21.24v-.812h2.097a.214.214 0 0 0 .214-.214v-.77a.214.214 0 0 0-.213-.216H21.24v-.81h2.097z" fill-rule="evenodd">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </span>
+                        </a>
+                        <a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-kakao" style="background-color: rgb(250, 185, 0); border-radius: 26px;">
+                            <span class="at4-visually-hidden">Share to Kakao</span>
+                            <span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-kakao-3" style="fill: rgb(255, 255, 255); width: 32px; height: 32px;" class="at-icon at-icon-kakao">
+                                    <title id="at-svg-kakao-3">Kakao</title>
+                                    <g>
+                                        <path d="M20.826 6h-9.652C10.524 6 10 6.51 10 7.138v9.336c0 .63.525 1.14 1.174 1.14h4.45c-.03 1.11-.507 2.318-1.196 3.39-.775 1.207-2.426 2.543-2.44 2.555-.13.12-.226.26-.23.456 0 .15.08.263.167.385l3.104 3.395s.15.154.274.183c.14.033.3.037.41-.045 5.374-4.032 6.15-9.085 6.285-11.82V7.137C22 6.508 21.475 6 20.826 6" fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </span>
+                        </a>
+                        <a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-compact" style="background-color: rgb(255, 101, 80); border-radius: 26px;">
+                            <span class="at4-visually-hidden">Share to 더 보기</span>
+                            <span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-addthis-4" style="fill: rgb(255, 255, 255); width: 32px; height: 32px;" class="at-icon at-icon-addthis">
+                                    <title id="at-svg-addthis-4">AddThis</title>
+                                    <g>
+                                        <path d="M18 14V8h-4v6H8v4h6v6h4v-6h6v-4h-6z" fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </span>
+                            <span class="at4-share-count-container" style="font-size: 11.4px; line-height: 32px; color: rgb(255, 255, 255);">42.7K</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-3 image-title-wrap">
+                <button type="button p-2" class="try-again-btn" onclick="gaReload()">
+                    <span class="try-again-text">다른 사진으로 재시도</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- //section1 -->
+    <!-- footer -->
+    <div id="includefooter"></div>
+    <!-- //footer -->
+    
+    
+    <!-- 자바스크립트 라이브러리 -->
+    <script src="/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="/assets/js/modernizr-custom.js"></script>
+    <script src="/assets/js/ie-checker.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+    <!-- adfit -->
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+    <!-- include -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $("#includeheader").load("/template/header.html")
+        $("#includefooter").load("/template/footer.html")
+        });
+    </script>
+    
+    
+    <script type="text/javascript">
+
+        Kakao.init('7ad5dbb1442e107e28141c4853829218');
+        const imageArray = ['retromeme1.jpg', 'retromeme2.jpg', 'retromeme3.png', 'retromeme4.jpg', 'retromeme5.jpg', 'retromeme6.jpg', 'retromeme7.jpg', 'retromeme8.jpg', 'retromeme9.jpg', 'retromeme10.png'];
+
+        $(document).ready(function () {
+            let html = '';
+            for (let i in imageArray) {
+                html = `${html}<li><a class="kakaoBtn" id="kakaoBtn${i}"><img src="assets/img/${imageArray[i]}" alt="${i}" /></a></li>`;
+            }
+            $('#imageList').append(html);
+
+            for (let i in imageArray) {
+                Kakao.Link.createDefaultButton({
+                    container: `#kakaoBtn${i}`,
+                    objectType: 'feed',
+                    content: {
+                        title: '',
+                        description: '',
+                        imageUrl: 'https://nory.cc/temporary/social/kakaotalk/retromeme/assets/img/' + imageArray[i],
+                        imageWidth: 450,
+                        imageHeight: 800,
+                        link: {
+                        mobileWebUrl: 'https://nory.cc/temporary/social/kakaotalk/retromeme/',
+                        androidExecParams: 'test',
+                        },
+                    },
+                    buttons: [
+                        {
+                        title: '오늘의 좋은 글귀',
+                        link: {
+                            mobileWebUrl: 'https://nory.cc/temporary/social/kakaotalk/retromeme/',
+                        },
+                        },
+                    ],
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    fail: function(error) {
+                        console.log(error);
+                    }
+                });
+            }
+        });
+
+    
+        
+    </script>
+
+</body>
+</html>
