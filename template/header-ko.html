@@ -1,0 +1,34 @@
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="header clearfix">
+                <h1>
+                    <a href="/ko/index.html">
+                        <em><img src="/assets/img/logo_nory.png" alt="logo"></em>
+                    </a>    
+                </h1>
+                <nav id="mNav">
+                    <h2 class="ir_so">menu</h2>
+                    <a href="#" class="ham"><span></span></a>
+                </nav>
+                <nav class="nav">
+                    <ul class="clearfix">
+                        <li><a href="/ko/social.html" onclick="alert('준비중입니다.');" style="cursor:pointer">SNS</a></li>
+                        <li><a href="/ko/personality.html">심리테스트</a></li>
+                        <li><a href="/ko/quiz.html">퀴즈</a></li>
+                        <li><a href="/ko/tournament.html">토너먼트</a></li>
+                        <li><a href="/ko/game.html">게임</a></li>
+                    </ul>
+                </nav>    
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<script>
+    $(".ham").click(function(e){
+        e.preventDefault();
+        $(".nav").slideToggle();
+    });
+</script>
