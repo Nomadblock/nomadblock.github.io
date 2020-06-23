@@ -6,7 +6,7 @@
 /* 섹션 */
 .section {padding: 5px 0px;}
 .section h1 em {font-size: 15px;}
-.square a {position: relative; padding-top: 18%; overflow: hidden; float: left; border-radius: 5%; width: 24%; margin: 0.5%;}
+.square a {position: relative; padding-top: 36%; overflow: hidden; float: left; border-radius: 5%; width: 48%; margin: 1%;}
 /* .square a {position: relative; padding-top: 36%; overflow: hidden; float: left; border-radius: 5%; width: 48%; margin: 1%;} */
 .square a img {
     position: absolute; top: 0; left: 0; right: 0; bottom: 0; max-width: 100%; height: auto; 
