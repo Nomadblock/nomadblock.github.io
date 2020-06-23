@@ -3,96 +3,175 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
     <meta name="author" content="nory">
-    <meta name="description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second.">
+    <meta name="description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second.">
     <meta name="keywords" content="nory, Social Network, kakaotalk, Digital PlayGround">
     <title>Nory | Digital PlayGround</title>
-    
+
     <!-- language -->
     <link rel="alternate" hreflang="en" href="https://nory.cc/" />
     <link rel="alternate" hreflang="ko" href="https://nory.cc/ko/" />
     <link rel="alternate" hreflang="x-default" href="https://nory.cc/" />
-    
+
     <!-- google Adsense meta tags -->
-    <script data-ad-client="ca-pub-2637974918704527" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-2637974918704527" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <!-- style -->
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/assets/css/default.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.css">
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" sizes="32x32" href="/assets/icons/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/icons/favicon_72.png" />
     <link rel="apple-touch-icon-precomposed" sizes="96x96" href="/assets/icons/favicon_96.png" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/icons/favicon_144.png" />
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/assets/icons/favicon_192.png" />
-    
+
     <!-- Facebook meta tags -->
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Nory" />
     <meta property="og:url" content="http://nory.cc/index.html" />
     <meta property="og:image" content="http://nory.cc/assets/ico/favicon.png" />
     <meta property="og:site_name" content="Nory.cc" />
-    <meta property="og:description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
-   
+    <meta property="og:description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+
     <!-- twitter meta tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@nory" />
     <meta name="twitter:title" content="Nory" />
-    <meta name="twitter:description" content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+    <meta name="twitter:description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
     <meta property="twitter:image" content="http://nory.cc/assets/ico/favicon.png" />
-    
+
     <!-- Web Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet" >
-    
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
+        rel="stylesheet">
+
 </head>
 
 <body>
-
-        
     <!-- header -->
     <div id="includeheader"></div>
     <!-- //header -->
 
-    <div>Teachable Machine Image Model</div>
-    <button type="button" onclick="init()">Start</button>
+    <!-- subtitle -->
+    <section id="subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="subtitle">
+                    <div>
+                        <h1>동물상 테스트</h1>
+                    </div>
+                    <hr>
+                    <div>
+                        <h2>인공지능이 바라보는<br>나는 어떤 동물과 닮았을까?</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //subtitle -->
+
+
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="file-upload">
+                <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <div class="drag-text">
+                        <img src="upload.svg" class="upload">
+                        <h3 class="upload-text">얼굴 사진을 올려놓거나 눌러서 업로드 하세요</h3>
+                    </div>
+                </div>
+                <div class="file-upload-content">
+                    <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+                    <div id="loading" class="animated bounce">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <p class="text-center">AI가 당신의 동물상을 분석중입니다.</p>
+                    </div>
+
+                    <p class="result-message"></p>
+
+                    <div id="label-container" class="d-flex flex-column justify-content-around"></div>
+
+                    <div class="addthis_inline_share_toolbox"></div>
+            
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="window.location.reload();" class="try-again-btn">
+                            <span class="try-again-text">다른 사진으로 재시도</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="webcam-container"></div>
-    <div id="label-container"></div>
-    <!-- Go to www.addthis.com/dashboard to customize your tools --> 
-    <div class="addthis_inline_share_toolbox"></div>
+
 
     <!-- footer -->
     <div id="includefooter"></div>
     <!-- //footer -->
-    
-    
-    <!-- 자바스크립트 라이브러리 -->
-    <script src="/assets/js/jquery-3.5.0.min.js"></script>
-    <script src="/assets/js/modernizr-custom.js"></script>
-    <script src="/assets/js/ie-checker.js"></script>
 
-    <!-- adfit -->
-    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 
-    <!-- include -->
-    <script type="text/javascript">
-        $(document).ready(function(){
-        $("#includeheader").load("/template/header.html")
-        $("#includefooter").load("/template/footer.html")
-        });
-    </script>    
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.image-upload-wrap').hide();
+                    $('#loading').show();
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+                    $('.image-title').html(input.files[0].name);
+                };
+                reader.readAsDataURL(input.files[0]);
+                init().then(function () {
+                    predict();
+                    $('#loading').hide();
+                });
+
+            } else {
+                removeUpload();
+            }
+        }
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+
+
+    </script>
+
     <script type="text/javascript">
         // More API functions here:
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
         // the link to your model provided by Teachable Machine export panel
-        const URL = "./my_model/";
+        const URL = "https://teachablemachine.withgoogle.com/models/NNsjYBr0F/";
 
         let model, webcam, labelContainer, maxPredictions;
 
@@ -108,50 +187,120 @@
             model = await tmImage.load(modelURL, metadataURL);
             maxPredictions = model.getTotalClasses();
 
-            // Convenience function to setup a webcam
-            const flip = true; // whether to flip the webcam
-            webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-            await webcam.setup(); // request access to the webcam
-            await webcam.play();
-            window.requestAnimationFrame(loop);
-
             // append elements to the DOM
-            document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
         }
 
-        async function loop() {
-            webcam.update(); // update the webcam frame
-            await predict();
-            window.requestAnimationFrame(loop);
-        }
 
         // run the webcam image through the image model
         async function predict() {
             // predict can take in an image, video or canvas html element
-            const prediction = await model.predict(webcam.canvas);
-            if(prediction[0].probability.toFixed(2) > 0.9) {
-                labelContainer.childNodes[0].innerHTML = "나이프는 날 또는 모서리를 사용해 무언가를 잘라내는 도구이다. 무기가 아닌 도구 내지 공구로서 사용되는 칼이라고 정의할 수 있다. 나이프와 유사한 도구는 적어도 2백 5십만년 전 석기시대부터 사용되었으며, 올도완 문화의 유물들이 이를 증거한다."
-            } else if(prediction[1].probability.toFixed(2) > 0.9) {
-                labelContainer.childNodes[0].innerHTML = "잉크가 흘러나와서 필기를 할 수 있도록 만들어진 도구. 단순히 펜이라고만 하면 잉크통에 직접 찍어 쓰는 것을 말하는 것이었으나, 지금은 총칭으로 쓰인다. 원래의 펜은 딥펜(dip pen)이라고 불리게 되었다. 현재 잉크통에 찍어쓰는 펜은 만화용 도구 정도."
-            } else {
-                labelContainer.childNodes[0].innerHTML = "알 수 없음"
+            var image = document.getElementById("face-image");
+            const prediction = await model.predict(image, false);
+            prediction.sort(function (a, b) {
+                return parseFloat(b.probability) - parseFloat(a.probability);
+            });
+            console.log(prediction[0].className);
+            var resultTitle, resultExplain, resultCeleb;
+            switch (prediction[0].className) {
+                case "dog":
+                    resultTitle = "강아지상"
+                    resultExplain = "다정다감하고 귀여운 당신은 모든 사람들에게 즐거움을 주는 호감형이다! 친절하고 활발한 성격으로 어디에서도 인기폭발이며 애교와 웃음이 많아 연인에게 특히나 사랑스럽다. 당신은 애인바라기로 애인의 관심이 부족하면 시무룩해지고 외로움을 타는 모습이 마치 강아지와 똑 닮았다!"
+                    resultCeleb = "강아지상 연예인: 강다니엘, 백현(엑소), 박보검, 송중기"
+                    break;
+                case "cat":
+                    resultTitle = "고양이상"
+                    resultExplain = "무뚝뚝한 당신의 첫인상은 차가워 보이지만 묘한 매력을 풍겨 언제나 인기가 넘친다. 자존심이 세계 1등과 맞먹지만 관심 받는 것을 좋아하고 연인에게는 은근히 애교쟁이다. 시크한 츤데레로 연인에게 끊임없이 설렘을 안겨주는 당신은 고양이와 닮았다!"
+                    resultCeleb = "고양이상 연예인: 황민현(뉴이스트), 시우민(엑소), 강동원, 이종석, 이준기"
+                    break;
+                case "rabbit":
+                    resultTitle = "토끼상"
+                    resultExplain = "천진난만하고 귀여운 당신은 주변 사람들에게 기쁨을 주는 행복바이러스다! 호기심이 많아 활발하며 귀엽고 순수한 외모로 연인의 보호본능을 자극한다. 존재 자체가 상큼한 당신은 특별한 애교 없이도 연인에게 너무나도 사랑스럽다!"
+                    resultCeleb = "토끼상 연예인: 정국(방탄소년단), 바비(아이콘), 박지훈(워너원), 수호(엑소)"
+                    break;
+                case "dinosaur":
+                    resultTitle = "공룡상"
+                    resultExplain = "무심한 성격에 첫인상은 나쁜 남자 같지만, 알고 보면 따뜻함이 묻어나는 당신! 시크한 매력에 선뜻 다가가지 못하지만 한번 다가가면 헤어나올 수 없는 터프한 매력을 가진 카리스마 있는 남자다."
+                    resultCeleb = "공룡상 연예인: 윤두준(하이라이트), 이민기, 김우빈, 육성재(비투비), 공유"
+                    break;
+                case "bear":
+                    resultTitle = "곰상"
+                    resultExplain = "첫 인상은 무서워 보이지만 알고 보면 귀여운 매력의 당신! 꼼꼼하고 섬세한 성격으로 연인을 헌신적으로 챙겨주는 당신은 연인에게 듬직한 존재! 포근한 매력에 듬직함까지 갖춘 최고의 남자다!"
+                    resultCeleb = "곰상 연예인: 마동석, 조진웅, 조세호, 안재홍"
+                    break;
+                default:
+                    resultTitle = "알 수 없음"
+                    resultExplain = ""
+                    resultCeleb = ""
             }
-            // for (let i = 0; i < maxPredictions; i++) {
-            //     const classPrediction =
-            //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            //     labelContainer.childNodes[i].innerHTML = classPrediction;
-            // }
+            var title = "<div class='" + prediction[0].className + "-animal-title'>" + resultTitle + "</div>"
+            var explain = "<div class='animal-explain pt-2'>" + resultExplain + "</div>"
+            var celeb = "<div class='" + prediction[0].className + "-animal-celeb pt-2 pb-2'>" + resultCeleb + "</div>"
+            $('.result-message').html(title + explain + celeb);
+            var barWidth;
+            for (let i = 0; i < maxPredictions; i++) {
+                if (prediction[i].probability.toFixed(2) > 0.1) {
+                    barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + "%";
+                } else if (prediction[i].probability.toFixed(2) >= 0.01) {
+                    barWidth = "4%"
+                } else {
+                    barWidth = "2%"
+                }
+                var labelTitle;
+                switch (prediction[i].className) {
+                    case "dog":
+                        labelTitle = "강아지상"
+                        break;
+                    case "cat":
+                        labelTitle = "고양이상"
+                        break;
+                    case "rabbit":
+                        labelTitle = "토끼상"
+                        break;
+                    case "dinosaur":
+                        labelTitle = "공룡상"
+                        break;
+                    case "bear":
+                        labelTitle = "곰상"
+                        break;
+                    default:
+                        labelTitle = "알수없음"
+                }
+                var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
+                var bar = "<div class='bar-container position-relative'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
+                labelContainer.childNodes[i].innerHTML = label + bar;
+            }
         }
     </script>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#includeheader").load("/template/header.html")
+            $("#includefooter").load("/template/footer.html")
+            /* id 지정을 통해서도 가능합니다. 
+            $("#header").load("header.html #navbar")
+            */
+        });
+    </script>
+
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5edf4ff1375b6707"></script>
 
 
 
+
 </body>
+<!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     -->
+
 
 </html>
