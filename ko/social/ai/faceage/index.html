@@ -80,6 +80,44 @@
     <!-- //subtitle -->
 
     <!-- main -->
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="file-upload">
+                <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <div class="drag-text">
+                        <img src="upload.svg" class="upload">
+                        <h3 class="upload-text">얼굴 사진을 올려놓거나 눌러서 업로드 하세요</h3>
+                    </div>
+                </div>
+                <div class="file-upload-content">
+                    <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+                    <div id="loading" class="animated bounce">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <p class="text-center">AI가 당신의 동물상을 분석중입니다.</p>
+                    </div>
+
+                    <p class="result-message"></p>
+
+                    <div id="label-container" class="d-flex flex-column justify-content-around"></div>
+
+                    <div class="addthis_inline_share_toolbox"></div>
+
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="window.location.reload();" class="try-again-btn">
+                            <span class="try-again-text">다른 사진으로 재시도</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <p class="image_age"></p>
     <p class="image_gender"></p>
     <!-- //main -->
@@ -93,6 +131,7 @@
     <script src="/assets/js/modernizr-custom.js"></script>
     <script src="/assets/js/ie-checker.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5edf4ff1375b6707"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -105,23 +144,77 @@
     </script>
 
     <script>
-        Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
-        Kakao.API.request({
-            url: "/v1/vision/face/detect",
-            data: {
-                image_url: "https://t1.daumcdn.net/alvolo/_vision/openapi/r2/images/01.jpg"
-            },
-            success: function (msg) {
-                console.log(msg);
-                $( ".image_age" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
-                if(msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
-                    $( ".image_gender" ).append("여성");
-                } else {
-                    $( ".image_gender" ).append("남성");
+        function predict() {
+            var image = document.getElementById("face-image");
+
+            Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
+            Kakao.API.request({
+                url: "/v1/vision/face/detect",
+                data: {
+                    file: image
+                },
+                success: function (msg) {
+                    console.log(msg);
+                    $( ".image_age" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
+                    if(msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
+                        $( ".image_gender" ).append("여성");
+                    } else {
+                        $( ".image_gender" ).append("남성");
+                    }
                 }
-            }
-        });
+            });
+        }
     </script>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.image-upload-wrap').hide();
+                $('#loading').show();
+                $('.file-upload-image').attr('src', e.target.result);
+                $('.file-upload-content').show();
+                $('.image-title').html(input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+            init().then(function () {
+                predict();
+                $('#loading').hide();
+            });
+
+        } else {
+            removeUpload();
+        }
+    }
+
+    function removeUpload() {
+        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+        $('.file-upload-content').hide();
+        $('.image-upload-wrap').show();
+    }
+    $('.image-upload-wrap').bind('dragover', function () {
+        $('.image-upload-wrap').addClass('image-dropping');
+    });
+    $('.image-upload-wrap').bind('dragleave', function () {
+        $('.image-upload-wrap').removeClass('image-dropping');
+    });
+
+
+</script>
+
+
+
 </body>
+<!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     -->
 
 </html>
