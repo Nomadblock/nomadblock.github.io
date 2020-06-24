@@ -106,14 +106,14 @@
     <script>
         Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
         Kakao.API.request({
-            url: "https://kapi.kakao.com/v1/vision/face/detect",
+            url: "/v1/vision/face/detect",
             data: {
                 image_url: "https://t1.daumcdn.net/alvolo/_vision/openapi/r2/images/01.jpg"
-                 }
-        })
-            .done(function (msg) {
+            },
+            success: function (msg) {
                 console.log(msg);
-            });
+            }
+        });
     </script>
 </body>
 
