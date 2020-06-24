@@ -102,8 +102,6 @@
 
                     <p class="result-message"></p>
 
-                    <div id="label-container" class="d-flex flex-column justify-content-around"></div>
-
                     <div class="addthis_inline_share_toolbox"></div>
 
                     <div class="image-title-wrap">
@@ -116,10 +114,6 @@
         </div>
     </div>
 
-
-
-    <p class="image_age"></p>
-    <p class="image_gender"></p>
     <!-- //main -->
 
     <!-- footer -->
@@ -142,74 +136,101 @@
         });
     </script>
 
+
     <script>
-        Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
-        Kakao.API.request({
-            url: "/v1/vision/face/detect",
-            data: {
-                image_url: "https://t1.daumcdn.net/alvolo/_vision/openapi/r2/images/01.jpg"
-            },
-            success: function (msg) {
-                console.log(msg);
-                $( ".image_age" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
-                if(msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
-                    $( ".image_gender" ).append("여성");
-                } else {
-                    $( ".image_gender" ).append("남성");
-                }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.image-upload-wrap').hide();
+                    $('#loading').show();
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+                    $('.addthis_inline_share_toolbox').hide();
+                    $('.image-title-wrap').show();
+                    $('.image-title').html(input.files[0].name);
+                };
+                reader.readAsDataURL(input.files[0]);
+                init().then(function () {
+                    predict();
+                    $('#loading').hide();
+                    $('.addthis_inline_share_toolbox').show();
+                });
+
+            } else {
+                removeUpload();
             }
+        }
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
         });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+
     </script>
 
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
+    <script type="text/javascript">
 
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('.image-upload-wrap').hide();
-                $('#loading').show();
-                $('.file-upload-image').attr('src', e.target.result);
-                $('.file-upload-content').show();
-                $('.image-title').html(input.files[0].name);
-            };
-            reader.readAsDataURL(input.files[0]);
-            init().then(function () {
-                predict();
-                $('#loading').hide();
-            });
 
-        } else {
-            removeUpload();
+        async function init() {
+            Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
+
         }
-    }
-
-    function removeUpload() {
-        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-        $('.file-upload-content').hide();
-        $('.image-upload-wrap').show();
-    }
-    $('.image-upload-wrap').bind('dragover', function () {
-        $('.image-upload-wrap').addClass('image-dropping');
-    });
-    $('.image-upload-wrap').bind('dragleave', function () {
-        $('.image-upload-wrap').removeClass('image-dropping');
-    });
 
 
-</script>
+        async function predict() {
+            // predict can take in an image, video or canvas html element
+            var image = document.getElementById("face-image");
+
+            Kakao.API.request({
+                url: "/v1/vision/face/detect",
+                data: {
+                    image_url: image
+                },
+                success: function (msg) {
+                    console.log(msg);
+
+                    var resultAge, resultGender;
+
+                    $(".image_age").append(Math.floor(msg.result.faces[0].facial_attributes.age));
+                    if (msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
+                        resultGender = "여성";
+                    } else {
+                        resultGender = "남성";
+                    }
+
+                    var age = "<div class='image_age'>" + Math.floor(msg.result.faces[0].facial_attributes.age) + "</div>"
+                    var gender = "<div class='image_gender'>" + resultGender + "</div>"
+
+                    $('.result-message').html(age + gender);
+
+                }
+            });
+        }
+
+
+    </script>
 
 
 
 </body>
 <!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
     
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
     
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-     -->
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
 
 </html>
