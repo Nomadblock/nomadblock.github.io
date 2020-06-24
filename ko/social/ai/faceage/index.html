@@ -103,13 +103,13 @@
     </script>
 
     <script>
-        $.ajax({
+        Kakao.init('d5153b3bc4862dec704d2113d8188b5f');
+        Kakao.API.request({
             method: "POST",
             url: "https://kapi.kakao.com/v1/vision/face/detect",
             data: {
                  file: "icon_present.png"
-                 },
-            headers: {Authorization: "KakaoAK c2d9237d6cefdecfe65fa841e8be4251"}
+                 }
         })
             .done(function (msg) {
                 console.log(msg);
