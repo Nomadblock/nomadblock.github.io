@@ -80,7 +80,7 @@
     <!-- //subtitle -->
 
     <!-- main -->
-
+    <p></p>
     <!-- //main -->
 
     <!-- footer -->
@@ -112,6 +112,7 @@
             },
             success: function (msg) {
                 console.log(msg);
+                $( "p" ).append(msg.result.faces[0].facial_attributes.age);
             }
         });
     </script>
