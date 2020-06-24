@@ -131,7 +131,6 @@
     <script src="/assets/js/modernizr-custom.js"></script>
     <script src="/assets/js/ie-checker.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5edf4ff1375b6707"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -144,77 +143,62 @@
     </script>
 
     <script>
-        async function init() {
-
-
-            Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
-
-        }
-    </script>
-    <script>
-        function predict() {
-            var image = document.getElementById("face-image");
-
-            Kakao.API.request({
-                url: "/v1/vision/face/detect",
-                data: {
-                    file: image
-                },
-                success: function (msg) {
-                    console.log(msg);
-                    var age = msg.result.faces[0].facial_attributes.age;
-                    var female = msg.result.faces[0].facial_attributes.female;
-                    var male = msg.result.faces[0].facial_attributes.male;
-                    $(".image_age").append(Math.floor(age));
-                    if (female > male) {
-                        $(".image_gender").append("여성");
-                    } else {
-                        $(".image_gender").append("남성");
-                    }
+        Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
+        Kakao.API.request({
+            url: "/v1/vision/face/detect",
+            data: {
+                image_url: "https://t1.daumcdn.net/alvolo/_vision/openapi/r2/images/01.jpg"
+            },
+            success: function (msg) {
+                console.log(msg);
+                $( ".image_age" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
+                if(msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
+                    $( ".image_gender" ).append("여성");
+                } else {
+                    $( ".image_gender" ).append("남성");
                 }
-            });
-        }
-
-    </script>
-
-    <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('.image-upload-wrap').hide();
-                    $('#loading').show();
-                    $('.file-upload-image').attr('src', e.target.result);
-                    $('.file-upload-content').show();
-                    $('.image-title').html(input.files[0].name);
-                };
-                reader.readAsDataURL(input.files[0]);
-                init().then(function () {
-                    predict();
-                    $('#loading').hide();
-                });
-
-            } else {
-                removeUpload();
             }
-        }
-
-        function removeUpload() {
-            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-            $('.file-upload-content').hide();
-            $('.image-upload-wrap').show();
-        }
-        $('.image-upload-wrap').bind('dragover', function () {
-            $('.image-upload-wrap').addClass('image-dropping');
         });
-        $('.image-upload-wrap').bind('dragleave', function () {
-            $('.image-upload-wrap').removeClass('image-dropping');
-        });
-
-
     </script>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.image-upload-wrap').hide();
+                $('#loading').show();
+                $('.file-upload-image').attr('src', e.target.result);
+                $('.file-upload-content').show();
+                $('.image-title').html(input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+            init().then(function () {
+                predict();
+                $('#loading').hide();
+            });
+
+        } else {
+            removeUpload();
+        }
+    }
+
+    function removeUpload() {
+        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+        $('.file-upload-content').hide();
+        $('.image-upload-wrap').show();
+    }
+    $('.image-upload-wrap').bind('dragover', function () {
+        $('.image-upload-wrap').addClass('image-dropping');
+    });
+    $('.image-upload-wrap').bind('dragleave', function () {
+        $('.image-upload-wrap').removeClass('image-dropping');
+    });
+
+
+</script>
 
 
 
