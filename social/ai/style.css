@@ -396,6 +396,17 @@ input:checked + label > .knob > i:before {
 }
 
 
+/* jocoding */
+.jocoding {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.jocoding a{
+  color: red;
+}
+
+
 /* mediaquery */
 @media (max-width: 768px){
   .file-upload {
