@@ -144,7 +144,7 @@
     </script>
 
     <script>
-        function predict() {
+        function init() {
             var image = document.getElementById("face-image");
 
             Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
@@ -152,17 +152,18 @@
                 url: "/v1/vision/face/detect",
                 data: {
                     file: image
-                },
-                success: function (msg) {
-                    console.log(msg);
+                }
+            });
+        }
+
+        function predict() {
                     $( ".image_age" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
                     if(msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
                         $( ".image_gender" ).append("여성");
                     } else {
                         $( ".image_gender" ).append("남성");
                     }
-                }
-            });
+
         }
     </script>
 
