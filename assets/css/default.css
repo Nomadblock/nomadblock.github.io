@@ -12,7 +12,6 @@
 /* row */
 .row {padding: 0 27px;}
 
-.nav {display: none;}
 
 /* hamburger */
 .ham {display: block; width: 25px; height: 10px; background: rgba(0,0,0,0); padding: 12px 10px 10px 10px;}
@@ -70,6 +69,11 @@
 .footer address {padding-top: 15px;}
 .footer address a {color: #999;}
 
+/* adfit */
+.kakao_ad_area {
+  text-align: center;
+}
+
 
 /* mediaquery */
 @media (max-width: 1290px){
@@ -85,7 +89,7 @@
 }
 
 @media (max-width: 768px){
-    #mNav {display: none;}
+    #mNav {display: block;}
     .container {width: 100%;}
     .row {padding: 0 5px;}
     .nav {display: none;}
