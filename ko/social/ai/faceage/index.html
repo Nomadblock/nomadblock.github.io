@@ -101,21 +101,20 @@
             */
         });
     </script>
-    
+
     <script>
         $.ajax({
             method: "POST",
             url: "https://kapi.kakao.com/v1/vision/face/detect",
             data: {
-                 image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Jun_Hee_Lee.jpg/250px-Jun_Hee_Lee.jpg"
+                 file: "icon_present.jpg"
                  },
-            headers: {Authorization: "KakaoAK b4ab5cfc1319dd0fa316731c25125888"}
+            headers: {Authorization: "KakaoAK c2d9237d6cefdecfe65fa841e8be4251"}
         })
             .done(function (msg) {
-                alert("Data Saved: " + msg);
+                console.log(msg);
             });
     </script>
-
 </body>
 
 </html>
