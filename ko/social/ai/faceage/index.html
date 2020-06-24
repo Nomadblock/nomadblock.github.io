@@ -81,6 +81,7 @@
 
     <!-- main -->
     <p class="image_age"></p>
+    <p class="image_gender"></p>
     <!-- //main -->
 
     <!-- footer -->
@@ -112,7 +113,12 @@
             },
             success: function (msg) {
                 console.log(msg);
-                $( "p" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
+                $( ".image_age" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
+                if(msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
+                    $( ".image_gender" ).append("여성");
+                } else {
+                    $( ".image_gender" ).append("남성");
+                }
             }
         });
     </script>
