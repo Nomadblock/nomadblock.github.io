@@ -112,7 +112,7 @@
             },
             success: function (msg) {
                 console.log(msg);
-                $( "p" ).append(msg.result.faces[0].facial_attributes.age);
+                $( "p" ).append(Math.floor(msg.result.faces[0].facial_attributes.age));
             }
         });
     </script>
