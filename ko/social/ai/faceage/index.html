@@ -203,8 +203,7 @@
                 var newImage = imageBase64.src;
 
                 Kakao.API.request({
-                    
-                url: 'https://kapi.kakao.com/v1/vision/face/detect',
+                url: '/v1/vision/face/detect',
                 data: {
                     image_url: newImage
                 },
