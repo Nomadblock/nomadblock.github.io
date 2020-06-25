@@ -152,7 +152,7 @@
                     $('.image-title-wrap').show();
                     $('.image-title').html(input.files[0].name);
                 };
-                reader.readAsDataURL(input.files[0]);
+                reader.readAsBinaryString(input.files[0]);
                 init().then(function () {
                     predict();
                     $('#loading').hide();
@@ -191,7 +191,6 @@
         async function predict() {
             // predict can take in an image, video or canvas html element
             var image = document.getElementById("face-image");
-            var imageBinary = atob(image);
 
             Kakao.API.request({
                 url: "/v1/vision/face/detect",
