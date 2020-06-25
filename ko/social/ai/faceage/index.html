@@ -130,15 +130,13 @@
         $(document).ready(function () {
             $("#includeheader").load("/template/header-ko.html")
             $("#includefooter").load("/template/footer.html")
-            /* id 지정을 통해서도 가능합니다. 
-            $("#header").load("header.html #navbar")
-            */
         });
     </script>
 
 
     <script>
         function readURL(input) {
+
             if (input.files && input.files[0]) {
 
                 var reader = new FileReader();
@@ -152,6 +150,7 @@
                     $('.image-title-wrap').show();
                     $('.image-title').html(input.files[0].name);
 
+                    
                 };
                 reader.readAsDataURL(input.files[0]);
                 init().then(function () {
@@ -163,6 +162,16 @@
             } else {
                 removeUpload();
             }
+        }
+
+        function ArrayBufferToBinary(buffer) {
+            // Convert an array buffer to a string bit-representation: 0 1 1 0 0 0...
+            var dataView = new DataView(buffer);
+            var response = "", offset = (8 / 8);
+            for (var i = 0; i < dataView.byteLength; i += offset) {
+                response += dataView.getInt8(i).toString(2);
+            }
+            return response;
         }
 
         function removeUpload() {
@@ -181,22 +190,22 @@
 
     <script type="text/javascript">
 
-
-
         async function init() {
             Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
-
         }
 
-
         async function predict() {
-            // predict can take in an image, video or canvas html element
-            var image = document.getElementById("face-image");
 
-            Kakao.API.request({
-                url: "/v1/vision/face/detect",
+            var imageBase64 = document.getElementById("face-image");
+            console.log(imageBase64);
+
+            setTimeout(function() {
+                var newImage = imageBase64.src;
+
+                Kakao.API.request({
+                url: "https://kapi.kakao.com/v1/vision/face/detect",
                 data: {
-                    image_url: image
+                    image_url: newImage
                 },
                 success: function (msg) {
                     console.log(msg);
@@ -217,6 +226,13 @@
 
                 }
             });
+
+
+            }, 3000);
+            
+            
+
+            
         }
 
 
