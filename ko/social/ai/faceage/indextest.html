@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#but_upload").click(function(){
+
+                    let apiURL = 'https://kapi.kakao.com/v1/vision/face/detect';
+                    let apiKey = 'c2d9237d6cefdecfe65fa841e8be4251';    // 여기에 API KEY 입력해주세요
+
+                    var fd = new FormData();
+                    var files = $('#file')[0].files[0];
+                    fd.append('file',files);
+                
+                    $.ajax({
+                        url: apiURL,
+                        type: 'POST',
+                        data: fd,
+                        dataType: 'jsonp',
+                        beforeSend : function(xhr){
+                            xhr.setRequestHeader("Authorization", "KakaoAK " + apiKey);
+                        },
+                        contentType: false,
+                        processData: false,
+                        success: function(response){
+                            
+                            $('#response').text('success');
+                        },
+                        error: function(response) {
+                            $('#response').text('error');
+                            
+                        }
+                    });
+                });
+            });
+        </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" id="myform">
+            <div class='preview'>
+                <img src="" id="img" width="100" height="100">
+            </div>
+            <div >
+                <input type="file" id="file" name="file" />
+                <input type="button" class="button" value="Upload" id="but_upload">
+            </div>
+            <div id="response">
+
+            </div>
+        </form>
+    </div>
+
+    
+</body>
+</html>
