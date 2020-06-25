@@ -124,7 +124,7 @@
     <script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/modernizr-custom.js"></script>
     <script src="/assets/js/ie-checker.js"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="kakao.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -150,7 +150,7 @@
                     $('.image-title-wrap').show();
                     $('.image-title').html(input.files[0].name);
 
-                    
+
                 };
                 reader.readAsDataURL(input.files[0]);
                 init().then(function () {
@@ -199,43 +199,43 @@
             var imageBase64 = document.getElementById("face-image");
             console.log(imageBase64);
 
-            setTimeout(function() {
+            setTimeout(function () {
                 var newImage = imageBase64.src;
-                
+
                 Kakao.API.request({
-                url: "https://kapi.kakao.com/v1/vision/face/detect",
-                data: {
-                    image_url: newImage
-                },
-                success: function (msg) {
-                    console.log(msg);
+                    url: '/v1/vision/face/detect',
+                    data: {
+                        image_url: newImage
+                    },
+                    success: function (msg) {
+                        console.log(msg);
 
-                    var resultAge, resultGender;
+                        var resultAge, resultGender;
 
-                    $(".image_age").append(Math.floor(msg.result.faces[0].facial_attributes.age));
-                    if (msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
-                        resultGender = "여성";
-                    } else {
-                        resultGender = "남성";
+                        $(".image_age").append(Math.floor(msg.result.faces[0].facial_attributes.age));
+                        if (msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
+                            resultGender = "여성";
+                        } else {
+                            resultGender = "남성";
+                        }
+
+                        var age = "<div class='image_age'>" + Math.floor(msg.result.faces[0].facial_attributes.age) + "</div>"
+                        var gender = "<div class='image_gender'>" + resultGender + "</div>"
+
+                        $('.result-message').html(age + gender);
+
+                    },
+                    fail: function (error) {
+                        console.log(error);
                     }
-
-                    var age = "<div class='image_age'>" + Math.floor(msg.result.faces[0].facial_attributes.age) + "</div>"
-                    var gender = "<div class='image_gender'>" + resultGender + "</div>"
-
-                    $('.result-message').html(age + gender);
-
-                },
-                fail: function(error) {
-                    console.log(error);
-                } 
-            });
+                });
 
 
             }, 3000);
-            
-            
 
-            
+
+
+
         }
 
 
