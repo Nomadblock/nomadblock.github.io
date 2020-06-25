@@ -124,7 +124,7 @@
     <script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/modernizr-custom.js"></script>
     <script src="/assets/js/ie-checker.js"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -203,7 +203,8 @@
                 var newImage = imageBase64.src;
 
                 Kakao.API.request({
-                url: "https://kapi.kakao.com/v1/vision/face/detect",
+                    
+                url: '/v1/vision/face/detect',
                 data: {
                     image_url: newImage
                 },
@@ -224,7 +225,10 @@
 
                     $('.result-message').html(age + gender);
 
-                }
+                },
+                fail: function(error) {
+                    console.log(error);
+                } 
             });
 
 
