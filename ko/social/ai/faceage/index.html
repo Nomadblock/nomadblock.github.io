@@ -191,11 +191,12 @@
         async function predict() {
             // predict can take in an image, video or canvas html element
             var image = document.getElementById("face-image");
+            var imageBinary = atob(image);
 
             Kakao.API.request({
                 url: "/v1/vision/face/detect",
                 data: {
-                    file: image
+                    file: imageBinary
                 },
                 success: function (msg) {
                     console.log(msg);
