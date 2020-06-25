@@ -152,7 +152,7 @@
                     $('.image-title-wrap').show();
                     $('.image-title').html(input.files[0].name);
                 };
-                reader.readAsBinaryString(input.files[0]);
+                reader.readAsDataURL(input.files[0]);
                 init().then(function () {
                     predict();
                     $('#loading').hide();
