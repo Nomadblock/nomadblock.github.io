@@ -201,9 +201,10 @@
 
             setTimeout(function() {
                 var newImage = imageBase64.src;
-
+                
+                Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
                 Kakao.API.request({
-                url: '/v1/vision/face/detect',
+                url: "/v1/vision/face/detect",
                 data: {
                     image_url: newImage
                 },
