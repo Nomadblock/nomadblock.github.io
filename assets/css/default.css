@@ -31,9 +31,11 @@
 .header h1 {float: left;}
 .header h1 em {display: inline-block;}
 .header h1 em img {height: 49px; width: 98px; margin-bottom: -4px;}
-.header .nav {float: right;}
+.header .nav {float: right; display: none;}
 .header .nav ul li {float: left; width: 125px; text-align: center;}
 .header .nav ul li a {display: block; padding: 12px 10px; font-size: 15px; font-weight: 700; color: #f7931e;}
+
+
 
 /* subtitle */
 .subtitle{
@@ -89,7 +91,7 @@
 }
 
 @media (max-width: 768px){
-    #mNav {display: block;}
+    #mNav {display: none;}
     .container {width: 100%;}
     .row {padding: 0 5px;}
     .nav {display: none;}
