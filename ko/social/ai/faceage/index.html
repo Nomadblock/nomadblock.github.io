@@ -80,12 +80,13 @@
     <!-- //subtitle -->
 
     <!-- main -->
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <div class="container">
         <div class="row">
             <div class="file-upload">
                 <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="file" id="file" class="file-upload-input" onchange="readURL(this);" accept="image/*" />
+                    </form>
                     <div class="drag-text">
                         <img src="upload.svg" class="upload">
                         <h3 class="upload-text">얼굴 사진을 올려놓거나 눌러서 업로드 하세요</h3>
@@ -140,6 +141,7 @@
             if (input.files && input.files[0]) {
 
                 var reader = new FileReader();
+                formData = input.files[0];
 
                 reader.onload = function (e) {
                     $('.image-upload-wrap').hide();
@@ -164,15 +166,6 @@
             }
         }
 
-        function ArrayBufferToBinary(buffer) {
-            // Convert an array buffer to a string bit-representation: 0 1 1 0 0 0...
-            var dataView = new DataView(buffer);
-            var response = "", offset = (8 / 8);
-            for (var i = 0; i < dataView.byteLength; i += offset) {
-                response += dataView.getInt8(i).toString(2);
-            }
-            return response;
-        }
 
         function removeUpload() {
             $('.file-upload-input').replaceWith($('.file-upload-input').clone());
@@ -196,16 +189,22 @@
 
         async function predict() {
 
-            var imageBase64 = document.getElementById("face-image");
-            console.log(imageBase64);
+            // var imageBase64 = document.getElementById("face-image");
+            // console.log(imageBase64);
 
-            setTimeout(function () {
-                var newImage = imageBase64.src;
+            // setTimeout(function () {
+            //     var newImage = imageBase64.src;
+            //     console.log(newImage);
+
+            console.log(formData);
+
+
+
 
                 Kakao.API.request({
                     url: 'https://kapi.kakao.com/v1/vision/face/detect',
                     data: {
-                        image_url: newImage
+                        file: formData
                     },
                     success: function (msg) {
                         console.log(msg);
@@ -224,14 +223,11 @@
 
                         $('.result-message').html(age + gender);
 
-                    },
-                    fail: function (error) {
-                        console.log(error);
                     }
                 });
 
 
-            }, 3000);
+            // }, 3000);
 
 
 
