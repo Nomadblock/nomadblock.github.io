@@ -147,7 +147,7 @@
     <script type="text/javascript">
 
         Kakao.init('d5153b3bc4862dec704d2113d8188b5f');
-        const imageArray = ['assets/img/meme1.png', 'assets/img/meme2.png', 'assets/img/meme3.png', 'assets/img/meme4.png', 'assets/img/meme5.png', 'assets/img/meme6.png', 'assets/img/meme7.png', 'assets/img/meme8.png', 'assets/img/meme9.png', 'assets/img/meme10.png', 'assets/img/meme11.png', 'assets/img/meme12.png', 'assets/img/meme13.png'];
+        const imageArray = ['assets/img/meme1.png', 'assets/img/meme2.png', 'assets/img/meme3.png', 'assets/img/meme4.png', 'assets/img/meme5.png', 'assets/img/meme6.png', 'assets/img/meme7.png', 'assets/img/meme8.png', 'assets/img/meme9.png', 'assets/img/meme10.png', 'assets/img/meme11.png', 'assets/img/meme12.png', 'assets/img/meme13.png', 'assets/img/meme14.png', 'assets/img/meme15.png', 'assets/img/meme16.png', 'assets/img/meme17.png'];
 
         $(document).ready(function () {
             let html = '';
@@ -157,7 +157,7 @@
             }
             $('#imageList').append(html);
 
-            let kakaoAd1, kakaoAd2, kakaoAd3 = '';
+            let kakaoAd1, kakaoAd2, kakaoAd3, kakaoAd4 = '';
             kakaoAd1 = `<li style="width: 100%;"><div class="kakao_ad_area">
                         <ins class="kakao_ad_area_320x50" style="display:none;" data-ad-unit="DAN-1ibbihdhbtz5l" data-ad-width="320"
                         data-ad-height="50"></ins>
@@ -170,10 +170,15 @@
                         <ins class="kakao_ad_area_320x50" style="display:none;" data-ad-unit="DAN-s4sckpqy51rn" data-ad-width="320"
                         data-ad-height="50"></ins>
                         </div></li>`;
+            kakaoAd3 = `<li style="width: 100%;"><div class="kakao_ad_area">
+                        <ins class="kakao_ad_area_320x50" style="display:none;" data-ad-unit="DAN-u7zlj9hp7eqr" data-ad-width="320"
+                        data-ad-height="50"></ins>
+                        </div></li>`;
 
             $('#li3').after(kakaoAd1);
             $('#li7').after(kakaoAd2);
             $('#li11').after(kakaoAd3);
+            $('#li15').after(kakaoAd4);
 
 
 
