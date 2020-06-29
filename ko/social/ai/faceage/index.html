@@ -149,6 +149,7 @@
                     $('.file-upload-image').attr('src', e.target.result);
                     $('.file-upload-content').show();
                     // $('.image-title-wrap').show();
+                    $('.addthis_inline_share_toolbox').show();
                     $('.image-title').html(input.files[0].name);
 
 
@@ -157,7 +158,6 @@
                 init().then(function () {
                     predict();
                     $('#loading').hide();
-                    $('.addthis_inline_share_toolbox').show();
                 });
 
             } else {
