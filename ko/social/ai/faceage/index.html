@@ -148,14 +148,12 @@
                     $('#loading').show();
                     $('.file-upload-image').attr('src', e.target.result);
                     $('.file-upload-content').show();
-                    $('.addthis_inline_share_toolbox').hide();
-                    $('.image-title-wrap').show();
+                    // $('.image-title-wrap').show();
                     $('.image-title').html(input.files[0].name);
 
 
                 };
                 reader.readAsDataURL(input.files[0]);
-                console.log("리더" + input.files[0]);
                 init().then(function () {
                     predict();
                     $('#loading').hide();
@@ -189,9 +187,6 @@
         }
 
         async function predict() {
-
-            console.log(formData);
-
 
                 Kakao.API.request({
                     url: '/v1/vision/face/detect',
