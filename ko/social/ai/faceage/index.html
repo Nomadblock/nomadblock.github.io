@@ -141,7 +141,7 @@
             if (input.files && input.files[0]) {
 
                 var reader = new FileReader();
-                formData = input.files[0];
+                formData = input.files;
 
                 reader.onload = function (e) {
                     $('.image-upload-wrap').hide();
@@ -155,6 +155,7 @@
 
                 };
                 reader.readAsDataURL(input.files[0]);
+                console.log("리더" + input.files[0]);
                 init().then(function () {
                     predict();
                     $('#loading').hide();
@@ -189,16 +190,7 @@
 
         async function predict() {
 
-            // var imageBase64 = document.getElementById("face-image");
-            // console.log(imageBase64);
-
-            // setTimeout(function () {
-            //     var newImage = imageBase64.src;
-            //     console.log(newImage);
-
             console.log(formData);
-
-
 
 
                 Kakao.API.request({
@@ -223,7 +215,11 @@
 
                         $('.result-message').html(age + gender);
 
+                    },
+                    fail: function(error){
+                        console.log(error);
                     }
+                    
                 });
 
 
