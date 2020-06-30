@@ -200,7 +200,7 @@
                         var resultAge, resultGender;
 
                         $(".image_age").append(Math.floor(msg.result.faces[0].facial_attributes.age));
-                        if (msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.male) {
+                        if (msg.result.faces[0].facial_attributes.gender.female > msg.result.faces[0].facial_attributes.gender.male) {
                             resultGender = "여성";
                         } else {
                             resultGender = "남성";
