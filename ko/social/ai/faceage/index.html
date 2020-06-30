@@ -197,6 +197,10 @@
                     success: function (msg) {
                         console.log(msg);
 
+                        if(msg.result.faces[0] == ""){
+                            $('.result-message').html("<div>얼굴이 감지되지 않았습니다.<br>사진을 변경하여 다시 시도해주세요.</div>");
+                        } else {
+
                         var resultAge, resultGender;
 
                         $(".image_age").append(Math.floor(msg.result.faces[0].facial_attributes.age));
@@ -210,6 +214,7 @@
                         var gender = "<div class='image_gender'>" + resultGender + "</div>"
 
                         $('.result-message').html(age + gender);
+                        }
 
                     },
                     fail: function(error){
