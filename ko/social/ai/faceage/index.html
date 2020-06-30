@@ -146,7 +146,7 @@
 
                 reader.onload = function (e) {
                     $('.image-upload-wrap').hide();
-                    // $('#loading').show();
+                    $('#loading').show();
                     $('.file-upload-image').attr('src', e.target.result);
                     $('.file-upload-content').show();
 
@@ -155,8 +155,10 @@
                 reader.readAsDataURL(input.files[0]);
                 init().then(function () {
                     predict();
-                    $('.animated').hide();
-                    $('.addthis_inline_share_toolbox_5dp4').show();
+                    setTimeout(function() {
+                        $('#loading').hide();
+                        $('.addthis_inline_share_toolbox_5dp4').show();
+                    }, 1000);
                 });
 
             } else {
