@@ -149,14 +149,13 @@
                     $('#loading').show();
                     $('.file-upload-image').attr('src', e.target.result);
                     $('.file-upload-content').show();
-                    $('.image-title').html(input.files[0].name);
 
 
                 };
                 reader.readAsDataURL(input.files[0]);
                 init().then(function () {
-                    $('#loading').hide();
                     predict();
+                    $('.animated').hide();
                     $('.addthis_inline_share_toolbox_5dp4').show();
                 });
 
