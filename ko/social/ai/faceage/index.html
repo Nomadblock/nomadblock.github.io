@@ -103,7 +103,7 @@
 
                     <p class="result-message"></p>
 
-                    <div class="addthis_inline_share_toolbox"></div>
+                    <div class="addthis_inline_share_toolbox_5dp4"></div>
 
                     <div class="image-title-wrap">
                         <button type="button" onclick="window.location.reload();" class="try-again-btn">
@@ -125,6 +125,7 @@
     <script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/modernizr-custom.js"></script>
     <script src="/assets/js/ie-checker.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5edf4ff1375b6707"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
     <script type="text/javascript">
@@ -149,7 +150,6 @@
                     $('.file-upload-image').attr('src', e.target.result);
                     $('.file-upload-content').show();
                     // $('.image-title-wrap').show();
-                    $('.addthis_inline_share_toolbox').show();
                     $('.image-title').html(input.files[0].name);
 
 
@@ -158,6 +158,7 @@
                 init().then(function () {
                     predict();
                     $('#loading').hide();
+                    $('.addthis_inline_share_toolbox_5dp4').show();
                 });
 
             } else {
