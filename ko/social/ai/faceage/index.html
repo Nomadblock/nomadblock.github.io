@@ -158,7 +158,7 @@
                     setTimeout(function() {
                         $('#loading').hide();
                         $('.addthis_inline_share_toolbox_5dp4').show();
-                    }, 1000);
+                    }, 500);
                 });
 
             } else {
@@ -200,7 +200,7 @@
                         var resultAge, resultGender;
 
                         $(".image_age").append(Math.floor(msg.result.faces[0].facial_attributes.age));
-                        if (msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.female) {
+                        if (msg.result.faces[0].facial_attributes.female > msg.result.faces[0].facial_attributes.male) {
                             resultGender = "여성";
                         } else {
                             resultGender = "남성";
