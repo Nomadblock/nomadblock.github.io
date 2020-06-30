@@ -197,7 +197,7 @@
                     success: function (msg) {
                         console.log(msg);
 
-                        if(msg.result.faces[0] == ""){
+                        if(!msg.result.faces[0]){
                             $('.result-message').html("<div>얼굴이 감지되지 않았습니다.<br>사진을 변경하여 다시 시도해주세요.</div>");
                         } else {
 
