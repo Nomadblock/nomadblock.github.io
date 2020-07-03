@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta name="author" content="nory">
+    <meta name="description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second.">
+    <meta name="keywords" content="nory, Social Network, kakaotalk, Digital PlayGround">
+    <title>Nory | Digital PlayGround</title>
+
+    <!-- language -->
+    <link rel="alternate" hreflang="en" href="https://nory.cc/" />
+    <link rel="alternate" hreflang="ko" href="https://nory.cc/ko/" />
+    <link rel="alternate" hreflang="x-default" href="https://nory.cc/" />
+
+    <!-- google Adsense meta tags -->
+    <script data-ad-client="ca-pub-2637974918704527" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" sizes="32x32" href="/assets/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/icons/favicon_72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="/assets/icons/favicon_96.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/icons/favicon_144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/assets/icons/favicon_192.png" />
+
+    <!-- Facebook meta tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Nory" />
+    <meta property="og:url" content="http://nory.cc/index.html" />
+    <meta property="og:image" content="http://nory.cc/assets/ico/favicon.png" />
+    <meta property="og:site_name" content="Nory.cc" />
+    <meta property="og:description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+
+    <!-- twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nory" />
+    <meta name="twitter:title" content="Nory" />
+    <meta name="twitter:description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+    <meta property="twitter:image" content="http://nory.cc/assets/ico/favicon.png" />
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- header -->
+    <div id="includeheader"></div>
+    <!-- //header -->
+
+    <!-- subtitle -->
+    <section id="subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="subtitle">
+                    <div>
+                        <h1>내 나이가 어때서</h1>
+                    </div>
+                    <hr>
+                    <div>
+                        <h2>인공지능이 바라보는<br>내 얼굴 나이는 몇일까?</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //subtitle -->
+
+    <!-- main -->
+    <h1>Detect Faces:</h1>
+    Enter the URL to an image that includes a face or faces, then click
+    the <strong>Analyze face</strong> button.<br><br>
+    Image to analyze: <input type="text" name="inputImage" id="inputImage"
+        value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+    <button onclick="processImage()">Analyze face</button><br><br>
+    <div id="wrapper" style="width:1020px; display:table;">
+        <div id="jsonOutput" style="width:600px; display:table-cell;">
+            Response:<br><br>
+            <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
+        </div>
+        <div id="imageDiv" style="width:420px; display:table-cell;">
+            Source image:<br><br>
+            <img id="sourceImage" width="400" />
+        </div>
+    </div>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="file-upload">
+                <div class="image-upload-wrap">
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="file" id="file" class="file-upload-input" onchange="readURL(this);" accept="image/*" />
+                    </form>
+                    <div class="drag-text">
+                        <img src="upload.svg" class="upload">
+                        <h3 class="upload-text">얼굴 사진을 올려놓거나 눌러서 업로드 하세요</h3>
+                    </div>
+                </div>
+                <div class="file-upload-content">
+                    <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+                    <div id="loading" class="animated bounce">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <p class="text-center">AI가 당신의 동물상을 분석중입니다.</p>
+                    </div>
+
+                    <p class="result-message"></p>
+
+                    <div class="addthis_inline_share_toolbox_5dp4"></div>
+
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="window.location.reload();" class="try-again-btn">
+                            <span class="try-again-text">다른 사진으로 재시도</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kakao_ad_area">
+        <ins class="kakao_ad_area_body-pc-mobile-1" style="display:none;" data-ad-unit="DAN-1hux6ibvxki1u"
+            data-ad-width="250" data-ad-height="250"></ins>
+        <ins class="kakao_ad_area_body-pc-mobile-2" style="display:none;" data-ad-unit="DAN-1jym4dla3zmes"
+            data-ad-width="250" data-ad-height="250"></ins>
+    </div> -->
+
+    <!-- //main -->
+
+    <!-- footer -->
+    <div id="includefooter"></div>
+    <!-- //footer -->
+
+    <!-- JavaScript Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <!-- <script src="/assets/js/jquery-3.5.0.min.js"></script> -->
+    <!-- <script src="/assets/js/modernizr-custom.js"></script>
+    <script src="/assets/js/ie-checker.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5edf4ff1375b6707"></script>-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#includeheader").load("/template/header-ko.html")
+            $("#includefooter").load("/template/footer.html")
+        });
+    </script>
+
+<script type="text/javascript">
+    function processImage() {
+        // Replace <Subscription Key> with your valid subscription key.
+        var subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
+    
+        var uriBase =
+            "https://koreacentral.api.cognitiveservices.azure.com/face/v1.0/detect";
+    
+        // Request parameters.
+        var params = {
+            "returnFaceId": "true",
+            "returnFaceLandmarks": "false",
+            "returnFaceAttributes":
+                "age,gender,headPose,smile,facialHair,glasses,emotion" +
+                "hair,makeup,occlusion,accessories,blur,exposure,noise"
+        };
+    
+        // Display the image.
+        var sourceImageUrl = document.getElementById("inputImage").value;
+        document.querySelector("#sourceImage").src = sourceImageUrl;
+    
+        // Perform the REST API call.
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+    
+            // Request headers.
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+    
+            type: "POST",
+    
+            // Request body.
+            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+        })
+    
+        .done(function(data) {
+            // Show formatted JSON on webpage.
+            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+        })
+    
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ?
+                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ?
+                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                    jQuery.parseJSON(jqXHR.responseText).message :
+                        jQuery.parseJSON(jqXHR.responseText).error.message;
+            alert(errorString);
+        });
+    };
+</script>
+
+
+    <!-- <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+                formData = input.files;
+
+                reader.onload = function (e) {
+                    $('.image-upload-wrap').hide();
+                    $('#loading').show();
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+
+
+                };
+                reader.readAsDataURL(input.files[0]);
+                init().then(function () {
+                    predict();
+                    setTimeout(function () {
+                        $('#loading').hide();
+                        $('.addthis_inline_share_toolbox_5dp4').show();
+                    }, 500);
+                });
+
+            } else {
+                removeUpload();
+            }
+        }
+
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+
+    </script>
+
+    <script type="text/javascript">
+
+        async function init() {
+            Kakao.init('b4ab5cfc1319dd0fa316731c25125888');
+        }
+
+        async function predict() {
+
+            Kakao.API.request({
+                url: '/v1/vision/face/detect',
+                data: {
+                    file: formData
+                },
+                success: function (msg) {
+                    console.log(msg);
+
+                    if (!msg.result.faces[0]) {
+                        $('.result-message').html("<div>얼굴이 감지되지 않았습니다.<br>사진을 변경하여 다시 시도해주세요.</div>");
+                    } else {
+
+                        var resultAge, resultGender;
+
+                        $(".image_age").append(Math.floor(msg.result.faces[0].facial_attributes.age));
+                        if (msg.result.faces[0].facial_attributes.gender.female > msg.result.faces[0].facial_attributes.gender.male) {
+                            resultGender = "여성";
+                        } else {
+                            resultGender = "남성";
+                        }
+
+                        var age = "<div class='image_age'>" + Math.floor(msg.result.faces[0].facial_attributes.age) + "</div>"
+                        var gender = "<div class='image_gender'>" + resultGender + "</div>"
+
+                        $('.result-message').html(age + gender);
+                    }
+
+                },
+                fail: function (error) {
+                    console.log(error);
+
+                }
+
+            });
+
+
+            // }, 3000);
+
+
+
+
+        }
+
+
+    </script> -->
+
+
+
+</body>
+<!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+    
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+
+</html>
