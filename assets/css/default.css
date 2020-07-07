@@ -60,8 +60,8 @@
 
 /* container */
 
-.recommended a {position: relative; padding-top: 18%; overflow: hidden; float: left; border-radius: 5%; width: 24%; margin: 0.5%;}
-.recommended a img {
+.recommended_thumb a {position: relative; padding-top: 18%; overflow: hidden; float: left; border-radius: 5%; width: 24%; margin: 0.5%;}
+.recommended_thumb a img {
     position: absolute; top: 0; left: 0; right: 0; bottom: 0; max-width: 100%; height: auto; 
     display: block; 
     transform: scale(1);
@@ -71,9 +71,9 @@
     -o-transform: scale(1);
     transition: all .3s ease-in-out;
 }
-.recommended a em { color: #fff; width: 100%; font-size: 12px;
+.recommended_thumb a em { color: #fff; width: 100%; font-size: 12px;
     position: absolute; left: 10%; top: 10%;}
-.recommended a img:hover {
+.recommended_thumb a img:hover {
     transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
@@ -136,8 +136,8 @@
     .header .nav ul li {width: 100%; text-align: center; border-right: none;}
     .header .nav ul li a {display: inline;}
     .section ul li {width: 50%;}
-    .square a {width: 48%; margin: 1%; padding-top: 36%;}
-    .square a:hover img {filter: none;}
+    .recommended_thumb a {width: 48%; margin: 1%; padding-top: 36%;}
+    .recommended_thumb a:hover img {filter: none;}
     .footer {padding: 10px 20px;} 
     .footer address {padding-top: 10px;}
 }
