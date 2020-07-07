@@ -127,6 +127,14 @@
 
     <!-- //main -->
 
+    <!-- recommended -->
+    <div id="include-recommended"></div>
+    <!-- //recommended -->
+
+    <!-- new -->
+    <div id="include-new"></div>
+    <!-- //new -->
+
     <!-- footer -->
     <div id="includefooter"></div>
     <!-- //footer -->
@@ -142,6 +150,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#includeheader").load("/template/header-ko.html")
+            $("#include-recommended").load("/template/recommended-ko.html")
+            $("#include-new").load("/template/new-ko.html")
             $("#includefooter").load("/template/footer.html")
         });
     </script>
