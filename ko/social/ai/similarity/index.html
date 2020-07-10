@@ -232,7 +232,7 @@
                 .done(function (data) {
                     console.log(data);
                     var confidence = data.confidence;
-                    var confidence_adjusted = confidence * (2 -confidence);
+                    var confidence_adjusted = 1 - ((1 - confidence) ** 3);
                     var similarity = confidence_adjusted*100
                     $('.result-message').html("유사도 : " + similarity + "%");
                 })
