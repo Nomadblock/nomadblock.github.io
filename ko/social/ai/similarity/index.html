@@ -178,13 +178,12 @@
 
                 };
                 reader.readAsDataURL(input.files[0]);
-                init().then(function () {
+                    init();
                     predict();
                     setTimeout(function () {
                         $('#loading').hide();
                         $('.addthis_inline_share_toolbox_5dp4').show();
                     }, 500);
-                });
 
             } else {
                 removeUpload();
@@ -208,13 +207,12 @@
 
     <script type="text/javascript">
 
-        async function init() {
+        function init() {
             getFaceId1();
             getFaceId2();
         }
 
-        async function predict() {
-            var faceId1, faceId2;
+        function predict() {
             console.log(faceId1);
             console.log(faceId2);
             var subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
@@ -231,8 +229,6 @@
                     "faceId1": faceId1,
                     "faceId2": faceId2
                 },
-                processData: false,
-                contentType: false
             })
                 .done(function (data) {
                     var confidence = data[0].confidence;
@@ -264,19 +260,15 @@
                 },
                 type: "POST",
                 data: formData,
-                async:false, // Ajax는 비동기방식이므로, async값을 주지않으면 true가 셋팅되어 비동기방시긍
+                async: false,
                 processData: false,
                 contentType: false
             })
-
                 .done(function (data1) {
                     console.log(data1);
                     faceId1 = data1[0].faceId;
                     console.log(faceId1);
-
                 })
-
-
                 .fail(function (jqXHR, textStatus, errorThrown) {
                     // Display error message.
                     var errorString = (errorThrown === "") ?
@@ -312,14 +304,13 @@
                 },
                 type: "POST",
                 data: '{"url": ' + '"' + sourceImageUrl + '"}',
-                async:false,
+                async: false,
             })
 
                 .done(function (data2) {
                     console.log(data2);
                     faceId2 = data2[0].faceId;
                     console.log(faceId2);
-                    predict();
                 })
 
 
