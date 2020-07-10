@@ -84,7 +84,7 @@
         <div class="row">
             <div class="file-upload">
                 <div class="refImage">
-                    <img id="sourceImage" src="img/ref1.png">
+                    <img id="sourceImage" src="img/ref1.png" alt="ref image">
                 </div>
                 <div class="image-upload-wrap">
                     <form method="post" enctype="multipart/form-data">
@@ -214,14 +214,12 @@
         }
 
         async function predict() {
+            var faceId1, faceId2;
+            var subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
             var uriBase =
-                "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/verify?";
-            var params = {
-                "faceId1": faceId1,
-                "faceId2": faceId2
-        };
-        $.ajax({
-                url: uriBase + $.param(params),
+                "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/verify";
+            $.ajax({
+                url: uriBase,
                 beforeSend: function (xhrObj) {
                     xhrObj.setRequestHeader("Content-Type", "application/json");
                     xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
@@ -234,26 +232,22 @@
                 processData: false,
                 contentType: false
             })
-            .done(function(data) {
-                var confidence = data[0].confidence;
-                $('.result-message').html(confidence);
-                alert("success");
-            })
-            .fail(function() {
-                alert("error");
-            });
+                .done(function (data) {
+                    var confidence = data[0].confidence;
+                    $('.result-message').html(confidence);
+                    alert("success");
+                })
+                .fail(function () {
+                    alert("error");
+                });
         }
 
     </script>
 
     <script type="text/javascript">
         function getFaceId1() {
-            labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < 8; i++) { // and class labels
-                labelContainer.appendChild(document.createElement("div"));
-            }
 
-            subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
+            var subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
             var uriBase =
                 "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/detect?";
             var params = {
@@ -268,6 +262,7 @@
                 },
                 type: "POST",
                 data: formData,
+                async:false, // Ajax는 비동기방식이므로, async값을 주지않으면 true가 셋팅되어 비동기방시긍
                 processData: false,
                 contentType: false
             })
@@ -276,7 +271,7 @@
                     console.log(data1);
                     faceId1 = data1[0].faceId;
                     console.log(faceId1);
-                    
+
                 })
 
 
@@ -293,52 +288,51 @@
         }
     </script>
 
-<script type="text/javascript">
-    function getFaceId2() {
-        
+    <script type="text/javascript">
+        function getFaceId2() {
 
-        subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
-        var uriBase =
-            "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/detect?";
-        var params = {
-            "returnFaceId": "true",
-        };
 
-        var sourceImageUrl = document.querySelector("#sourceImage").src;
-        console.log(sourceImageUrl);
+            var subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
+            var uriBase =
+                "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/detect?";
+            var params = {
+                "returnFaceId": "true",
+            };
 
-        $.ajax({
-            url: uriBase + $.param(params),
-            beforeSend: function (xhrObj) {
-                xhrObj.setRequestHeader("Content-Type", "application/json");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            },
-            type: "POST",
-            data: '{"url": ' + '"' + sourceImageUrl + '"}',
-            processData: false,
-            contentType: false
-        })
+            sourceImageUrl = document.getElementById("sourceImage").src;
+            console.log(sourceImageUrl);
 
-            .done(function (data2) {
-                console.log(data2);
-                faceId2 = data2[0].faceId;
-                console.log(faceId2);
-                predict();
+            $.ajax({
+                url: uriBase + $.param(params),
+                beforeSend: function (xhrObj) {
+                    xhrObj.setRequestHeader("Content-Type", "application/json");
+                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                },
+                type: "POST",
+                data: '{"url": ' + '"' + sourceImageUrl + '"}',
+                async:false,
             })
 
+                .done(function (data2) {
+                    console.log(data2);
+                    faceId2 = data2[0].faceId;
+                    console.log(faceId2);
+                    predict();
+                })
 
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                // Display error message.
-                var errorString = (errorThrown === "") ?
-                    "Error. " : errorThrown + " (" + jqXHR.status + "): ";
-                errorString += (jqXHR.responseText === "") ?
-                    "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
-                        jQuery.parseJSON(jqXHR.responseText).message :
-                        jQuery.parseJSON(jqXHR.responseText).error.message;
-                alert(errorString);
-            });
-    }
-</script>
+
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    // Display error message.
+                    var errorString = (errorThrown === "") ?
+                        "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                    errorString += (jqXHR.responseText === "") ?
+                        "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                            jQuery.parseJSON(jqXHR.responseText).message :
+                            jQuery.parseJSON(jqXHR.responseText).error.message;
+                    alert(errorString);
+                });
+        }
+    </script>
 
 
 </body>
