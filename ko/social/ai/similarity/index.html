@@ -230,6 +230,7 @@
                 '"faceId2": ' + '"' + faceId2 + '"}'
             })
                 .done(function (data) {
+                    console.log(data);
                     var confidence = data[0].confidence;
                     $('.result-message').html(confidence);
                     alert("success");
