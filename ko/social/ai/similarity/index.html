@@ -225,10 +225,9 @@
                     xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
                 },
                 type: "POST",
-                data: {
-                    "faceId1": faceId1,
-                    "faceId2": faceId2
-                },
+                data: 
+                '{"faceId1": ' + '"' + faceId1 + '", ' +
+                '"faceId2": ' + '"' + faceId2 + '"}'
             })
                 .done(function (data) {
                     var confidence = data[0].confidence;
