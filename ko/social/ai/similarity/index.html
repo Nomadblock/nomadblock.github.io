@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta name="author" content="nory">
+    <meta name="description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second.">
+    <meta name="keywords" content="nory, Social Network, kakaotalk, Digital PlayGround">
+    <title>Nory | Digital PlayGround</title>
+
+    <!-- language -->
+    <link rel="alternate" hreflang="en" href="https://nory.cc/" />
+    <link rel="alternate" hreflang="ko" href="https://nory.cc/ko/" />
+    <link rel="alternate" hreflang="x-default" href="https://nory.cc/" />
+
+    <!-- google Adsense meta tags -->
+    <script data-ad-client="ca-pub-2637974918704527" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" sizes="32x32" href="/assets/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/icons/favicon_72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="/assets/icons/favicon_96.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/icons/favicon_144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/assets/icons/favicon_192.png" />
+
+    <!-- Facebook meta tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Nory" />
+    <meta property="og:url" content="http://nory.cc/index.html" />
+    <meta property="og:image" content="http://nory.cc/assets/ico/favicon.png" />
+    <meta property="og:site_name" content="Nory.cc" />
+    <meta property="og:description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+
+    <!-- twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nory" />
+    <meta name="twitter:title" content="Nory" />
+    <meta name="twitter:description"
+        content="Building Digital Playground. Human will live a new era, called Online First, Offline Second." />
+    <meta property="twitter:image" content="http://nory.cc/assets/ico/favicon.png" />
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- header -->
+    <div id="includeheader"></div>
+    <!-- //header -->
+
+    <!-- subtitle -->
+    <section id="subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="subtitle">
+                    <div>
+                        <h1>인공지능 감정 분석</h1>
+                    </div>
+                    <hr>
+                    <div>
+                        <h2>인공지능이 당신의<br>감정을 읽고 분석합니다.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //subtitle -->
+
+    <!-- main -->
+    <div class="container">
+        <div class="row">
+            <div class="file-upload">
+                <div class="refImage">
+                    <img id="sourceImage" src="img/1.png">
+                </div>
+                <div class="image-upload-wrap">
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="file" id="file" class="file-upload-input" onchange="readURL(this);"
+                            accept="image/*" />
+                    </form>
+                    <div class="drag-text">
+                        <img src="upload.svg" class="upload">
+                        <h3 class="upload-text">얼굴 사진을 올려놓거나 눌러서 업로드 하세요</h3>
+                    </div>
+                </div>
+                <div class="file-upload-content">
+                    <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+                    <div id="loading" class="animated bounce">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <p class="text-center">AI가 당신의 감정을 분석중입니다.</p>
+                    </div>
+
+                    <p class="result-message"></p>
+
+                    <div id="label-container" class="d-flex flex-column justify-content-around"></div>
+
+                    <div class="addthis_inline_share_toolbox_5dp4"></div>
+
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="window.location.reload();" class="try-again-btn">
+                            <span class="try-again-text">다른 사진으로 재시도</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kakao_ad_area">
+        <ins class="kakao_ad_area_body-pc-mobile-1" style="display:none;" data-ad-unit="DAN-1hux6ibvxki1u"
+            data-ad-width="250" data-ad-height="250"></ins>
+        <ins class="kakao_ad_area_body-pc-mobile-2" style="display:none;" data-ad-unit="DAN-1jym4dla3zmes"
+            data-ad-width="250" data-ad-height="250"></ins>
+    </div>
+
+    <!-- //main -->
+
+    <!-- recommended -->
+    <div id="include-recommended"></div>
+    <!-- //recommended -->
+
+    <!-- new -->
+    <div id="include-new"></div>
+    <!-- //new -->
+
+    <!-- footer -->
+    <div id="includefooter"></div>
+    <!-- //footer -->
+
+    <!-- JavaScript Library -->
+    <script src="/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="/assets/js/modernizr-custom.js"></script>
+    <script src="/assets/js/ie-checker.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5edf4ff1375b6707"></script>
+    <!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#includeheader").load("/template/header-ko.html")
+            $("#include-recommended").load("/template/recommended-ko.html")
+            $("#include-new").load("/template/new-ko.html")
+            $("#includefooter").load("/template/footer.html")
+        });
+    </script>
+
+
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+                formData = input.files[0];
+                console.log(formData)
+
+                reader.onload = function (e) {
+                    $('.image-upload-wrap').hide();
+                    $('#loading').show();
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+
+
+                };
+                reader.readAsDataURL(input.files[0]);
+                init().then(function () {
+                    predict();
+                    setTimeout(function () {
+                        $('#loading').hide();
+                        $('.addthis_inline_share_toolbox_5dp4').show();
+                    }, 500);
+                });
+
+            } else {
+                removeUpload();
+            }
+        }
+
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+
+    </script>
+
+    <script type="text/javascript">
+
+        async function init() {
+            getFaceId1();
+            getFaceId2();
+        }
+
+        async function predict() {
+            var uriBase =
+                "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/verify?";
+            var params = {
+                "faceId1": faceId1,
+                "faceId2": faceId2
+        };
+        $.ajax({
+                url: uriBase + $.param(params),
+                beforeSend: function (xhrObj) {
+                    xhrObj.setRequestHeader("Content-Type", "application/json");
+                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                },
+                type: "POST",
+                data: {
+                    "faceId1": faceId1,
+                    "faceId2": faceId2
+                },
+                processData: false,
+                contentType: false
+            })
+            .done(function(data) {
+                var confidence = data[0].confidence;
+                $('.result-message').html(confidence);
+                alert("success");
+            })
+            .fail(function() {
+                alert("error");
+            });
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        function getFaceId1() {
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < 8; i++) { // and class labels
+                labelContainer.appendChild(document.createElement("div"));
+            }
+
+            subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
+            var uriBase =
+                "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/detect?";
+            var params = {
+                "returnFaceId": "true",
+            };
+
+            $.ajax({
+                url: uriBase + $.param(params),
+                beforeSend: function (xhrObj) {
+                    xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                },
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false
+            })
+
+                .done(function (data1) {
+                    console.log(data1);
+                    faceId1 = data1[0].faceId;
+                    console.log(faceId1);
+                    
+                })
+
+
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    // Display error message.
+                    var errorString = (errorThrown === "") ?
+                        "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                    errorString += (jqXHR.responseText === "") ?
+                        "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                            jQuery.parseJSON(jqXHR.responseText).message :
+                            jQuery.parseJSON(jqXHR.responseText).error.message;
+                    alert(errorString);
+                });
+        }
+    </script>
+
+<script type="text/javascript">
+    function getFaceId2() {
+        
+
+        subscriptionKey = "45a143a2ab4c492cb5b4d44968648f49";
+        var uriBase =
+            "https://koreacentral.api.cognitive.microsoft.com/face/v1.0/detect?";
+        var params = {
+            "returnFaceId": "true",
+        };
+
+        var sourceImageUrl = document.querySelector("#sourceImage").src;
+        console.log(sourceImageUrl);
+
+        $.ajax({
+            url: uriBase + $.param(params),
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader("Content-Type", "application/json");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+            type: "POST",
+            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+            processData: false,
+            contentType: false
+        })
+
+            .done(function (data2) {
+                console.log(data2);
+                faceId2 = data2[0].faceId;
+                console.log(faceId2);
+                predict();
+            })
+
+
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                // Display error message.
+                var errorString = (errorThrown === "") ?
+                    "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                errorString += (jqXHR.responseText === "") ?
+                    "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                        jQuery.parseJSON(jqXHR.responseText).message :
+                        jQuery.parseJSON(jqXHR.responseText).error.message;
+                alert(errorString);
+            });
+    }
+</script>
+
+
+</body>
+<!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+    
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+
+</html>
