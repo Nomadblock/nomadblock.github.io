@@ -233,11 +233,10 @@
                     console.log(data);
                     var confidence = data.confidence;
                     var similarity = confidence*100
-                    $('.result-message').html(similarity + "%");
-                    alert("success");
+                    $('.result-message').html("유사도 : " + similarity + "%");
                 })
                 .fail(function () {
-                    alert("error");
+                    $('.result-message').html("얼굴을 인식할 수 없습니다. 다른 사진으로 다시 시도해주세요.");
                 });
         }
 
