@@ -8,6 +8,47 @@
 .subtitle hr {width: 80px; border: 1px solid #222; margin-top: 0px; margin-bottom: 0px;}
 .subtitle h2 {font-size: 15px; padding: 20px 0px;}
 
+/* subnav */
+.subnav_block {
+    display: flex;
+    justify-content: space-around;
+
+}
+.subnav {
+    width: 100%;
+}
+.subnav ul, .subnav li {
+	margin: 0;
+	padding: 0;
+}
+.subnav ul {
+    background: gray;
+    width: 100%;
+	/* width: 100%; */
+}
+.subnav li {
+	float: left;
+    width: 25%;
+}
+.subnav a {
+	background: #30A6E6;
+	color: #FFFFFF;
+	display: block;
+	font: bold 15px/20px sans-serif;
+	padding: 10px 5px;
+	text-align: center;
+	text-decoration: none;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+.subnav li:hover a {
+	background: #000000;
+}
+
+
 /* 섹션 */
 
 .section ul li {box-sizing: border-box; float: left; width: 25%; height: 360px; padding: 0.5%; overflow: hidden; }
