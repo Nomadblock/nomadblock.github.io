@@ -7,69 +7,74 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-<url>
-<loc>https://nory.cc/</loc>
-      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-      <priority>1.00</priority>
-      <xhtml:link 
-               rel="alternate"
-               hreflang="en"
-               href="https://nory.cc/"/>
-      <xhtml:link 
-               rel="alternate"
-               hreflang="ko"
-               href="https://nory.cc/ko/"/>
-      <xhtml:link 
-               rel="alternate"
-               hreflang="x-default"
-               href="https://nory.cc/"/>
-</url>
-<url>
-<loc>https://nory.cc/ko/</loc>
-      <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-      <priority>1.00</priority>
-      <xhtml:link 
-               rel="alternate"
-               hreflang="en"
-               href="https://nory.cc/"/>
-      <xhtml:link 
-               rel="alternate"
-               hreflang="ko"
-               href="https://nory.cc/ko/"/>
-      <xhtml:link 
-               rel="alternate"
-               hreflang="x-default"
-               href="https://nory.cc/"/>
-</url>
 
 <url>
-  <loc>https://nory.cc/index.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
+  <priority>1.00</priority>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://nory.cc/"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="ko"
+               href="https://nory.cc/ko/"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://nory.cc/"/>
+</url>
+<url>
+  <loc>https://nory.cc/ko/</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
+  <priority>1.00</priority>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://nory.cc/"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="ko"
+               href="https://nory.cc/ko/"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://nory.cc/"/>
+</url>
+<url>
+  <loc>https://nory.cc/ko/social/kakaotalk/gifticon/index.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://nory.cc/social.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/kakaotalk/retromeme/index.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://nory.cc/personality.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/ai/animalface/index.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://nory.cc/quiz.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/ai/politician/index.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://nory.cc/tournament.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/ai/faceage/index.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://nory.cc/game.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/ai/emotion/index.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nory.cc/ko/social/ai/similarity/index.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
@@ -78,18 +83,18 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://nory.cc/social/kakaotalk/index.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/kakaotalk/retromeme/1.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://nory.cc/social/instagram/index.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/kakaotalk/retromeme/2.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://nory.cc/social/ai/index.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
+  <loc>https://nory.cc/ko/social/kakaotalk/retromeme/3.html</loc>
+  <lastmod>2020-10-02T06:12:56+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
@@ -111,21 +116,6 @@
   <loc>https://nory.cc/blog/1/</loc>
   <lastmod>2020-05-25T22:04:24+00:00</lastmod>
   <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://nory.cc/social/kakaotalk/gifticon/index.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://nory.cc/social/kakaotalk/retromeme/index.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://nory.cc/social/instagram/twin/index.html</loc>
-  <lastmod>2020-06-09T17:40:15+00:00</lastmod>
-  <priority>0.51</priority>
 </url>
 
 
